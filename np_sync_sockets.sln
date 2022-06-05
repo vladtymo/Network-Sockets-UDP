@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sync_server", "np_sync_sockets\sync_server.csproj", "{E24E6F8A-FE38-4B29-9F5B-417BDBC3FA45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sync_client", "sync_client\sync_client.csproj", "{99CF3E77-DD15-49FF-8E13-67943EDD2397}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E24E6F8A-FE38-4B29-9F5B-417BDBC3FA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24E6F8A-FE38-4B29-9F5B-417BDBC3FA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E24E6F8A-FE38-4B29-9F5B-417BDBC3FA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E24E6F8A-FE38-4B29-9F5B-417BDBC3FA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99CF3E77-DD15-49FF-8E13-67943EDD2397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99CF3E77-DD15-49FF-8E13-67943EDD2397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99CF3E77-DD15-49FF-8E13-67943EDD2397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99CF3E77-DD15-49FF-8E13-67943EDD2397}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FEF51B7-F248-420B-B1FB-887AF2D2BFE3}
+	EndGlobalSection
+EndGlobal
