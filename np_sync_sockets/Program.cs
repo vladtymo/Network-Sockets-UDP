@@ -41,7 +41,7 @@ namespace np_sync_sockets
                     //bytes = listenSocket.ReceiveFrom(data, ref remoteEndPoint);
                     byte[] data = server.Receive(ref remoteEndPoint);
 
-                    string msg = Encoding.Unicode.GetString(data, 0, data.Length);
+                    string msg = Encoding.Unicode.GetString(data);
                     Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: {msg} from {remoteEndPoint}");
 
                     // отправляем ответ

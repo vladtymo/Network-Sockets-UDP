@@ -46,7 +46,7 @@ namespace sync_client
                     //    response += Encoding.Unicode.GetString(data, 0, bytes);
                     //} while (socket.Available > 0);
                     data = client.Receive(ref remoteIpPoint);
-                    string response = Encoding.Unicode.GetString(data, 0, data.Length);
+                    string response = Encoding.Unicode.GetString(data);
 
                     Console.WriteLine("server response: " + response);
                 }
