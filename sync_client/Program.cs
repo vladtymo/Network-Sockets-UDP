@@ -8,14 +8,15 @@ namespace sync_client
     class Program
     {
         // адрес и порт сервера, к которому будем подключаться
-        static int port = 8080; // порт сервера
         static string address = "127.0.0.1"; // адрес сервера
+        static int port = 8080;              // порт сервера
+
         static void Main(string[] args)
         {
             try
             {
                 IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
-
+                
                 IPEndPoint remoteIpPoint = new IPEndPoint(IPAddress.Any, 0);
 
                 // IP4 samples: 123.5.6.3    0.0.255.255    10.7.123.184

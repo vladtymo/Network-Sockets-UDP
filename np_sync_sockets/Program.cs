@@ -11,12 +11,13 @@ namespace np_sync_sockets
 {
     class Program
     {
-        static int port = 8080; // порт для приема входящих запросов
+        static string address = "127.0.0.1"; // поточний адрес
+        static int port = 8080;              // порт для приема входящих запросов
+
         static void Main(string[] args)
         {
             // получаем адреса для запуска сокета
-            IPAddress iPAddress = IPAddress.Parse("127.0.0.1"); //localhost
-            IPEndPoint ipPoint = new IPEndPoint(iPAddress, port);
+            IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
 
             // об'єкт для отримання адреси відправника
             IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
@@ -25,7 +26,7 @@ namespace np_sync_sockets
             //Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
             // связываем сокет с локальной точкой, по которой будем принимать данные
-            UdpClient server = new UdpClient(ipPoint);
+            UdpClient listener = new UdpClient(ipPoint);
                 
             try
             {
@@ -39,7 +40,7 @@ namespace np_sync_sockets
                     //int bytes = 0;
                     //byte[] data = new byte[1024];
                     //bytes = listenSocket.ReceiveFrom(data, ref remoteEndPoint);
-                    byte[] data = server.Receive(ref remoteEndPoint);
+                    byte[] data = listener.Receive(ref remoteEndPoint);
 
                     string msg = Encoding.Unicode.GetString(data);
                     Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: {msg} from {remoteEndPoint}");
@@ -48,7 +49,7 @@ namespace np_sync_sockets
                     string message = "Message was send!";
                     data = Encoding.Unicode.GetBytes(message);
                     //listenSocket.SendTo(data, remoteEndPoint);
-                    server.Send(data, data.Length, remoteEndPoint);
+                    listener.Send(data, data.Length, remoteEndPoint);
                 }
             }
             catch (Exception ex)
@@ -56,7 +57,9 @@ namespace np_sync_sockets
                 Console.WriteLine(ex.Message);
             }
 
-            server.Close();
+            //listenSocket.Shutdown(SocketShutdown.Both);
+            //listenSocket.Close();
+            listener.Close();
         }
     }
 }
