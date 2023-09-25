@@ -20,7 +20,7 @@ namespace np_sync_sockets
             IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
 
             // об'єкт для отримання адреси відправника
-            IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            IPEndPoint remoteEndPoint = null;
 
             // создаем сокет
             //Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
