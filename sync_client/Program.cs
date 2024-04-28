@@ -7,8 +7,7 @@ namespace sync_client
 {
     class Program
     {
-        // адрес и порт сервера, к которому будем подключаться
-        static string address = "127.0.0.1"; // адрес сервера
+        static string address = "127.0.0.1"; // адреса сервера
         static int port = 8080;              // порт сервера
 
         static void Main(string[] args)
@@ -30,6 +29,7 @@ namespace sync_client
                     message = Console.ReadLine();
                     byte[] data = Encoding.Unicode.GetBytes(message);
 
+                    // відпрявляємо запит на сервер
                     //socket.SendTo(data, ipPoint);
                     client.Send(data, data.Length, ipPoint);
 
@@ -37,7 +37,7 @@ namespace sync_client
                     // socket.Connect(ipPoint);
                     // socket.Send(data);
 
-                    // получаем ответ получаем сообщение
+                    // отримуємо відповідь
                     //int bytes = 0;
                     //string response = "";
                     //data = new byte[1024]; // 1KB
@@ -51,7 +51,7 @@ namespace sync_client
 
                     Console.WriteLine("server response: " + response);
                 }
-                // закрываем сокет
+                // закриваємо сокет
                 //socket.Shutdown(SocketShutdown.Both);
                 //socket.Close();
                 client.Close();

@@ -12,31 +12,30 @@ namespace np_sync_sockets
     class Program
     {
         static string address = "127.0.0.1"; // поточний адрес
-        static int port = 8080;              // порт для приема входящих запросов
+        static int port = 8080;              // порт для прийому вхідних запитів
 
         static void Main(string[] args)
         {
-            // получаем адреса для запуска сокета
+            // отримуємо адресу для запуску сервера
             IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
 
             // об'єкт для отримання адреси відправника
             IPEndPoint remoteEndPoint = null;
 
-            // создаем сокет
+            // створюємо сокет
             //Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
-            // связываем сокет с локальной точкой, по которой будем принимать данные
+            // зв'язуємо сокет з локальною точкою, по які будемо приймати дані
             UdpClient listener = new UdpClient(ipPoint);
-                
+            //listenSocket.Bind(ipPoint);
+
             try
             {
-                // связываем сокет с локальной точкой, по которой будем принимать данные
-                //listenSocket.Bind(ipPoint);
                 Console.WriteLine("Server started! Waiting for connection...");
 
                 while (true)
                 {
-                    // получаем сообщение
+                    // отримуємо повідомлення
                     //int bytes = 0;
                     //byte[] data = new byte[1024];
                     //bytes = listenSocket.ReceiveFrom(data, ref remoteEndPoint);
@@ -45,7 +44,7 @@ namespace np_sync_sockets
                     string msg = Encoding.Unicode.GetString(data);
                     Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: {msg} from {remoteEndPoint}");
 
-                    // отправляем ответ
+                    // відправляємо відповідь
                     string message = "Message was send!";
                     data = Encoding.Unicode.GetBytes(message);
                     //listenSocket.SendTo(data, remoteEndPoint);
